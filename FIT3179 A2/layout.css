@@ -1,0 +1,60 @@
+html,
+body {
+    background-color: #d1e5ff;
+}
+
+.head image{
+    vertical-align: middle;
+}
+
+
+.pure-u-1-2 img {
+    width: 30vw;
+    height: 30vw;
+}
+
+.pure-u-1-2 {
+    margin-top: 30px;
+    height: 30vw;
+    text-align: justify;
+    
+}
+
+#text_div {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #527298;
+    font-size: 40px;
+    line-height: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+h2 {
+    text-align: center;
+    color: #527298;
+    font-size: 25px;
+}
+
+p {
+    color: #527298;
+    font-size: 16px;
+    margin-left: 90px;
+    margin-right: 40px;
+    line-height: 20px;
+}
+
+#first_chart {
+    width: 50%;
+    height: 50%;
+}
+
+#second_chart {
+    width: 100%;
+    height: 50%;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+        integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="layout.css">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <script src="vega_lite.js"></script>
+
+    <title>Country Air quality</title>
+
+</head>
+
+<body>
+    
+
+    <div class="head-image">
+        <div style="text-align:center">
+        <img src="/AIR.jpeg" width="100%" height="400"/>
+        <div style="margin-bottom: 30px"; >
+        
+    </div>
+
+    <div class="pure-g">
+        <div class="pure-u-1">
+            <h1>World Air Quality: Update 2016</h1>
+            <div style="text-align:center">
+            <p> Data source: World Health Organization (WHO) </p></div>
+        </div>
+        <div class="pure-u-1-2">
+            <div id='text_div'>
+                <p> More than 80% of people living in urban areas that monitor air pollution are exposed to air quality levels that exceed the World Health Organization (WHO) limits. While all regions of the world are affected, populations in low-income cities are the most impacted. 
+                    As urban air quality declines, the risk of stroke, lung cancer, and chronic and acute respiratory diseases, including asthma, increases for the people who live in them. 
+                    <br> <br> The WHO air quality database compiles data on ground measurements of annual mean concentrations of particulate matter of a diameter equal or smaller than 2.5 μm (PM2.5) which aim at representing an average for the Urban or Rural area as a whole, rather than for individual stations. Both groups of pollutants originate mainly from human activities related to fossil fuel combustion. The database is updated regularly every 2-3 years since 2011 and now covering 3000 cities in 103 countries.
+                    <br> <br> The world's average PM10 levels by region range from 26 to 208 ug/m3, with a world's average of 71 ug/m3. 
+                </p>
+            </div>
+        </div>
+        <div class="pure-u-1-2">
+            <div style="margin-left:40px">
+            <div id="first_chart"></div>
+        </div>
+    </div>
+    </div>
+    <div>
+        <div style="text-align:center">
+        <div style="margin-top:30px">
+            <h1>Compare Air Quality between Countries, Continent, 
+            <br><br> Residence Area and Years</h1>
+            <p>(Select at the bottom)</p>
+    </div>
+
+    <div>
+        <div style="text-align:justify">
+        <div style="margin-left: 20%">
+        <div style="margin-right: 20%">
+        <p>More than 80% of people living in urban areas that monitor air pollution are exposed to air quality levels that exceed the WHO limits. 
+        While all regions of the world are affected, populations in low-income cities (e.g.,Africas region) are the most impacted. </p>
+        </div>
+    </div>
+    <div>
+        <div style="text-align:center">
+            <div id="second_chart"> </div>   
+            </div>
+    
+</body>
+
+</html>

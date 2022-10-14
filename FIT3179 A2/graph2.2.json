@@ -1,0 +1,133 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "https://raw.githubusercontent.com/0507huiyi/air-quality/main/air%20quality.csv"},
+    "width":500,
+    "height":400,
+    "background":"#e5f0ff",
+    "params": [
+      {
+        "name": "ParentLocation_Selection",
+        "value":"Africa",
+        "bind":{
+          "input": "select",
+          "options":[
+            "Europe",
+            "Africa",
+            "Americas",
+            "Eastern Mediterranean",
+            "South-East Asia",
+            "Western Pacific"
+          ],
+          "name": "Continet Selection:"
+        }
+      },
+      {
+        "name": "Year_Selection",
+        "value":2016,
+        "bind":{
+          "input": "range",
+          "min":2011,
+          "max": 2016,
+          "step":1,
+          "name": "Year Selection:"
+        }
+      },
+      {
+        "name": "Dim1_Selection",
+        "value":"Total",
+        "bind":{
+          "input": "select",
+          "options":[
+            "Total",
+            "Urban",
+            "Rural"
+          ],
+          "labels": ["Total(default)","Urban","Rural"],
+          "name": "Residence Selection:"
+        }
+      }
+    ],
+    "transform": [
+      {"filter":"ParentLocation_Selection == null || datum.ParentLocation == ParentLocation_Selection"},
+      {"filter":"datum.Year == Year_Selection"}
+    ],
+    "vconcat": [{
+      "width": 900,
+      "selection":{"Dim1_hightlight":{
+      "type":"multi",
+      "fields":["Dim1"],
+      "bind":"legend"}
+    },
+      "title":"Air Quality of different Residence Area of different Countries in specific Continent and Year",
+      "mark": "point",
+      "encoding": {
+        "x": {
+          "field": "Country",
+          "type": "nominal",
+          "title":" ",
+          "scale": {"domain": {"param": "brush"}}
+        },
+        "y": {"field": "FactValueNumeric", "type": "quantitative","title":"PM2.5"},
+        "color":{
+          "field":"Dim1",
+          "title":"Residence Area Type",
+          "scale":{
+            "domain":[
+              "Urban",
+              "Rural",
+              "Total"
+            ],
+            "range":[
+              "orange",
+              "green",
+              "#59a6e6"
+            ]
+            
+          }},
+        "opacity":{
+          "condition":{"selection":"Dim1_hightlight","value":0.6},
+          "value":0.2
+        },
+        "tooltip":[
+          {"field":"Country","type": "nominal","title":"Country"},
+          {"field":"Dim1","type": "nominal","title":"Residence Area Type"},
+          {"field":"FactValueNumeric","type": "quantitative","title":"Air quality"}
+        ]
+      }
+    }, 
+    
+  
+    {
+      "width": 900,
+      "height":60,
+      "transform": [
+        {"filter":"Dim1_Selection == null || datum.Dim1 == Dim1_Selection"}
+      ],
+      "title":"Air Quality of different Countries in specific Continent and Year",
+      "mark": "bar",
+      "params": [{
+        "name": "brush",
+        "select": {"type": "interval", "encodings": ["x"]}
+      }],
+      "encoding": {
+        "x": {
+          "field": "Country",
+          "type": "nominal"
+        },                                                
+        "y": {
+          "field": "FactValueNumeric",
+          "type": "quantitative",
+          "title":"PM2.5",
+          "axis": {"tickCount": 3, "grid": false}
+        },
+        "color":{"field":"FactValueNumeric","type": "quantitative","title":"PM2.5"},
+        "tooltip":[
+          {"field":"Country","type": "nominal","title":"Country"},
+          {"field":"Dim1","type": "nominal","title":"Residence Area Type"},
+          {"field":"FactValueNumeric","type": "quantitative","title":"Air quality"}
+        ]
+      }
+      
+    }]
+  }
+  
